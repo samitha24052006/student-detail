@@ -1,0 +1,20 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract StudentManagement {
+    struct Student {
+        uint id;
+        string name;
+        uint age;
+        string course;
+    }
+
+    mapping(uint => Student) public students;
+    uint public totalStudents;
+
+    event NewStudent(uint id, string name, uint age, string course);
+
+    function addStudent(uint _id, string memory _name, uint _age, string memory _course) public {
+        students[_id] = Student(_id, _name, _age,_course);
+    }
+}
